@@ -112,7 +112,7 @@ def create_app(test_config=None):
     except:
         abort(400)
 
-  @app_route('/techers/<int:techer_id>', methods=['PATCH'])
+  @app.route('/techers/<int:techer_id>', methods=['PATCH'])
   @requires_auth('patch:techer')
   def update_techers(payload, techer_id):
     body = request.get_json()
@@ -247,7 +247,7 @@ def create_app(test_config=None):
 
   return app
 
-APP = create_app()
+app = create_app()
 
 if __name__ == '__main__':
     APP.run(host='0.0.0.0', port=8080, debug=True)
