@@ -7,6 +7,7 @@ from auth import AuthError, requires_auth
 
 BOOKS_PER_PAGE = 10
 
+
 def paginate_Books(request, selection):
   page = request.args.get('page', 1, type=int)
   start =  (page - 1) * BOOKS_PER_PAGE
@@ -16,6 +17,7 @@ def paginate_Books(request, selection):
   current_books = books[start:end]
 
   return current_books
+
 
 def create_app(test_config=None):
   # create and configure the app
@@ -37,7 +39,7 @@ def create_app(test_config=None):
     if len(techers) == 0:
         abort(404)
 
-    return jsonify ({
+    return jsonify({
       'success': True,
       'techers' : {techer.id : techer.type for techer in techers}
     }), 200
