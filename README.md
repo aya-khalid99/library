@@ -1,6 +1,6 @@
 # library
-is a website to help pepole how want to learn a new skills you find a lot of books and with every book you see a teacher how nelp you to learn that book an a seem time you can add any book you want and we  get you a teacher to help you.
-I do this project for people who need to learn new thinks and they have problem with time or they dont need to git out home so they can learn from any where and any time , i get help them to do what they want in any time they want with help and advice from teachers. 
+- Is a website to help pepole how want to learn a new skills you find a lot of books and with every book you see a teacher how nelp you to learn that book an a seem time you can add any book you want and we  get you a teacher to help you.
+- I do this project for people who need to learn new thinks and they have problem with time or they dont need to git out home so they can learn from any where and any time , i get help them to do what they want in any time they want with help and advice from teachers. 
 ## Getting Started
 
 ### Installing Dependencies
@@ -20,11 +20,11 @@ Once you have your virtual environment setup and running, install dependencies b
 ```bash
 pip install -r requirements.txt
 ```
-or we can use 
+or we can use:
 
-'''bash
+```bash
 pip3 install -r requirements.txt
-'''
+```
 
 This will install all of the required packages we selected within the `requirements.txt` file.
 ## roles and permissions
@@ -41,9 +41,9 @@ This will install all of the required packages we selected within the `requireme
 
 ## Database Setup
 you have to add a new database manually , use the code here:
-'''bash
+```bash
 CREATE DATABASE library
-'''
+```
 ## Running the server
 
 From within the `backend` directory first ensure you are working using your created virtual environment.
@@ -56,10 +56,9 @@ export FLASK_ENV=development
 flask run
 ```
 ## heroku link 
-'''bash
+```bash
 https://git.heroku.com/floating-garden-04274.git
-'''
-
+```
 ## API-endpoint
 ### TEACHER
 #### Get 
