@@ -34,10 +34,10 @@ This will install all of the required packages we selected within the `requireme
 - Decode and verify the JWT using the Auth0 secret.
 - i.e. @require_auth(‘get:techer’)
 - raise an error if:
-the token is expired
-the claims are invalid
-the token is invalid
-the JWT doesn’t contain the proper action
+  - the token is expired
+  - the claims are invalid
+  - the token is invalid
+  - the JWT doesn’t contain the proper action
 
 ## Database Setup
 you have to add a new database manually , use the code here:
@@ -63,31 +63,31 @@ https://git.heroku.com/floating-garden-04274.git
 ## API-endpoint
 ### TEACHER
 #### Get 
--get a list of all teachers an website.
--sample: curl http://127.0.0.1:5000/techers
+- get a list of all teachers an website.
+- sample: curl http://127.0.0.1:5000/techers
 #### Patch
-to update the data of teacher like experience, specialty or age . 
+- to update the data of teacher like experience, specialty or age . 
 #### Post
--to add new teacher to the website.
--curl http://127.0.0.1/techers?page=3 -X POST -H "Content-Type: application/json" -d 
+- to add new teacher to the website.
+- curl http://127.0.0.1/techers?page=3 -X POST -H "Content-Type: application/json" -d 
 #### Delete 
--to delete any teacher we want from website.
--curl -X DELETE http://127.0.0.1:5000/techers/16?page=2
+- to delete any teacher we want from website.
+- curl -X DELETE http://127.0.0.1:5000/techers/16?page=2
 ### BOOK
 #### Get
--get a list of book we have in website.
--sample: curl http://127.0.0.1:5000/books
+- get a list of book we have in website.
+- sample: curl http://127.0.0.1:5000/books
 #### Post
--to add new book to the website.
--curl http://127.0.0.1/books?page=3 -X POST -H "Content-Type: application/json" -d 
+- to add new book to the website.
+- curl http://127.0.0.1/books?page=3 -X POST -H "Content-Type: application/json" -d 
 #### Delete 
--to delete a book from website.
--curl -X DELETE http://127.0.0.1:5000/books/16?page=2
+- to delete a book from website.
+- curl -X DELETE http://127.0.0.1:5000/books/16?page=2
 ### Error
--400: bad request
--401: resource not found
--404: not found
--422: unprocessable
+- 400: bad request
+- 401: resource not found
+- 404: not found
+- 422: unprocessable
 
 
 
