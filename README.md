@@ -28,12 +28,12 @@ pip3 install -r requirements.txt
 
 This will install all of the required packages we selected within the `requirements.txt` file.
 ## roles and permissions
--The JWT includes the RBAC permission claims.
--Access of roles is limited.
--get the Authorization header from the request.
--Decode and verify the JWT using the Auth0 secret.
--i.e. @require_auth(‘get:techer’)
--raise an error if:
+- The JWT includes the RBAC permission claims.
+- Access of roles is limited.
+- get the Authorization header from the request.
+- Decode and verify the JWT using the Auth0 secret.
+- i.e. @require_auth(‘get:techer’)
+- raise an error if:
 the token is expired
 the claims are invalid
 the token is invalid
