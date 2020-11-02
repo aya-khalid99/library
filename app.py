@@ -5,6 +5,11 @@ from flask_cors import CORS
 from models import setup_db, Book, Techer
 from auth import AuthError, requires_auth
 
+
+''' to get every 10 book on one page 
+'''
+
+
 BOOKS_PER_PAGE = 10
 
 
@@ -31,6 +36,11 @@ def create_app(test_config=None):
     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
     return response
 
+  
+  ''' to get list of all teachers
+  '''
+  
+  
   @app.route('/techers', methods=['GET'])
   @requires_auth('get:techer')
   def retrive_techers(payload):
@@ -43,6 +53,10 @@ def create_app(test_config=None):
       'success': True,
       'techers' : {techer.id : techer.type for techer in techers}
     }), 200
+  
+  '''to get list of all books
+  '''
+  
 
   @app.route('/books', methods=['GET'])
   @requires_auth('get:book')  
@@ -59,6 +73,11 @@ def create_app(test_config=None):
       'books': current_books,
       'techers': {techer.id: techer.type for techer in techers}
     }), 200
+  
+  
+  ''' to add new techer to the library
+  '''
+  
 
   @app.route('/techers', methods=['POST'])
   @requires_auth('post:techer')
@@ -87,6 +106,11 @@ def create_app(test_config=None):
     except:
         abort(400)
 
+        
+  ''' to add new bokk to the library 
+  '''
+  
+  
   @app.route('/books', methods=['POST'])
   @requires_auth('post:book')
   def create_book(payload):
@@ -113,6 +137,11 @@ def create_app(test_config=None):
       }), 200
     except:
         abort(400)
+        
+        
+ ''' to update the teacher data 
+ '''
+
 
   @app.route('/techers/<int:techer_id>', methods=['PATCH'])
   @requires_auth('patch:techer')
@@ -142,6 +171,11 @@ def create_app(test_config=None):
         }), 200
     except:
         abort(400)
+        
+        
+  ''' to delete teacher from library
+  '''
+  
 
   @app.route('/techers/<int:techer_id>', methods=['DELETE'])
   @requires_auth('delete:techer')
@@ -162,6 +196,11 @@ def create_app(test_config=None):
     except:
       abort(422)
 
+      
+  ''' to delete book from library
+  '''
+  
+  
   @app.route('/books/<int:book_id>', methods=['DELETE'])
   @requires_auth('delete:book')
   def delete_book(payload, book_id):
@@ -180,6 +219,11 @@ def create_app(test_config=None):
 
     except:
       abort(422)
+      
+      
+  ''' to can get search for any teacter in library
+  '''
+  
 
   @app.route('/techers/search', methods=['POST'])
   def search_techer():
@@ -194,8 +238,13 @@ def create_app(test_config=None):
       return jsonify({
         'success': True,
         'techers': current_techers
-      })
+      }), 200
 
+    
+  ''' to can get search for any book we have an library
+  '''
+  
+  
   @app.route('/books/search', methods=['POST'])
   def search_book():
     body = request.get_json()
@@ -209,7 +258,7 @@ def create_app(test_config=None):
       return jsonify({
         'success': True,
         'books': current_books
-      })
+      }), 200
 
 
   @app.errorhandler(422)
