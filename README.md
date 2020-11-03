@@ -27,18 +27,48 @@ pip3 install -r requirements.txt
 ```
 
 This will install all of the required packages we selected within the `requirements.txt` file.
-## roles and permissions
-- The JWT includes the RBAC permission claims.
-- Access of roles is limited.
-- get the Authorization header from the request.
-- Decode and verify the JWT using the Auth0 secret.
-- i.e. @require_auth(‘get:techer’)
-- raise an error if:
-  - the token is expired
-  - the claims are invalid
-  - the token is invalid
-  - the JWT doesn’t contain the proper action
-
+##### Key Dependencies
+- Flask is a lightweight backend microservices framework. Flask is required to handle requests and responses.
+- SQLAlchemy is the Python SQL toolkit and ORM we'll use handle the lightweight sqlite database. You'll primarily work in app.py and can reference models.py.
+- Flask-CORS is the extension we'll use to handle cross origin requests from our frontend server.
+- Gunicorn is the production ready server which we will be using to deploy our app.
+### Authentication
+Role Based Access Control (RBAC) has been configured using Auth0. Three user profiles were created and each assigned one of the following rules:
+- casting assistant
+- casting director
+- executive producer
+Each role has a unique bearer token, which will be used to authorise the requests available to that particular role. The tokens can be found in the setup.sh file
+## Setup Auth0
+- Create a new Auth0 Account
+- Select a unique tenant domain
+- Create a new, single page web application
+- Create a new API
+- in API Settings:
+  - Enable RBAC
+  - Enable Add Permissions in the Access Token
+- Create new API permissions:
+  - get:teacher
+  - get:book
+  - post:teacher
+  - post:book
+  - patch:teacher
+  - delete:teacher
+  - delete:book
+- Create new roles for:
+  - manger
+    - can get:teacher/book
+    - can post:teacher/book
+    - can patch:teachers
+    - can delete:teaher/book
+  - clint
+    - can get:teacher/book
+- Test your endpoints with Postman.
+  - Register 3 users - assign the Producer role to one and Director role to the other and Assistant role to the third.
+  - Sign into each account and make note of the JWT.
+  - Import the postman collection ./starter_code/backend/udacity-fsnd-udaspicelatte.postman_collection.json
+  - Right-clicking the collection folder for barista and manager, navigate to the authorization tab, and including the JWT in the token field (you should have noted these JWTs).
+  - Run the collection and correct any errors.
+  - Export the collection overwriting the one we've included so that we have your proper JWTs during review!
 ## Database Setup
 you have to add a new database manually , use the code here:
 ```bash
