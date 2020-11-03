@@ -87,7 +87,7 @@ flask run
 ```
 ## heroku link 
 ```bash
-https://git.heroku.com/floating-garden-04274.git
+https://floating-garden-04274.herokuapp.com/
 ```
 ## API-endpoint
 ### TEACHER
